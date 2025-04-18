@@ -1,1 +1,1 @@
-# Conference-Schedule-Organizer
+# Conference Schedule Organizer
