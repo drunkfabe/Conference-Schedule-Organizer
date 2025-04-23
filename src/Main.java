@@ -3,7 +3,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Main {
     static class Session implements Serializable {
         String id, title, speaker, time;
