@@ -271,6 +271,7 @@ public class Main {
         }
     }
 
+
     static void sortSessionsByTitle() {
         List<Session> sessions = readAllSessions();
         if (sessions.isEmpty()) {
