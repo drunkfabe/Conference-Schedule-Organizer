@@ -80,7 +80,7 @@ public class Main {
 
             System.out.print("Enter Date (YYYY-MM-DD): ");
             String date = scanner.nextLine().trim();
-            if (!isValidDate(date)) throw new Exception("Invalid date format.");
+            if (!isValidFutureDate(date)) throw new Exception("Invalid date format or date is not in the future.");
 
             System.out.print("Enter Start Time (HH:MM): ");
             String startTime = scanner.nextLine().trim();
@@ -135,7 +135,7 @@ public class Main {
 
             System.out.print("Enter new Date [" + session.date + "]: ");
             String date = scanner.nextLine().trim();
-            if (!date.isEmpty() && isValidDate(date)) session.date = date;
+            if (!date.isEmpty() && isValidFutureDate(date)) session.date = date;
 
             System.out.print("Enter new Start Time [" + session.startTime + "]: ");
             String startTime = scanner.nextLine().trim();
@@ -197,10 +197,10 @@ public class Main {
 
     // ===== Helper Methods =====
 
-    static boolean isValidDate(String dateStr) {
+    static boolean isValidFutureDate(String dateStr) {
         try {
-            LocalDate.parse(dateStr, DateTimeFormatter.ISO_DATE);
-            return true;
+            LocalDate inputDate = LocalDate.parse(dateStr, DateTimeFormatter.ISO_DATE);
+            return inputDate.isAfter(LocalDate.now());
         } catch (Exception e) {
             return false;
         }
@@ -243,7 +243,7 @@ public class Main {
                 }
             }
         } catch (IOException e) {
-            // Ignore if file doesn't exist
+            // File may not exist yet
         }
         return sessions;
     }
