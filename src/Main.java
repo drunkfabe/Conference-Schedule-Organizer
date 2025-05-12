@@ -19,6 +19,7 @@ public class Main {
             System.out.println("4. Delete Session");
             System.out.println("5. Generate Report");
             System.out.println("6. Exit");
+            System.out.println("7. View Sessions Sorted by Title");
             System.out.print("Enter choice: ");
 
             String choice = scanner.nextLine();
@@ -30,6 +31,7 @@ public class Main {
                 case "4": deleteSession(); break;
                 case "5": generateReport(); break;
                 case "6": System.exit(0);
+                case "7": sortSessionsByTitle(); break;
                 default: System.out.println("Invalid choice. Try again.");
             }
         }
@@ -195,7 +197,6 @@ public class Main {
         }
     }
 
-    // ===== Helper Methods =====
 
     static boolean isValidFutureDate(String dateStr) {
         try {
@@ -269,4 +270,20 @@ public class Main {
             System.out.println("Failed to write log.");
         }
     }
+
+    static void sortSessionsByTitle() {
+        List<Session> sessions = readAllSessions();
+        if (sessions.isEmpty()) {
+            System.out.println("No sessions available to sort.");
+            return;
+        }
+
+        sessions.sort(Comparator.comparing(s -> s.title.toLowerCase()));
+
+        System.out.println("=== Sessions Sorted by Title (A-Z) ===");
+        for (Session session : sessions) {
+            System.out.println(session);
+        }
+    }
+
 }
