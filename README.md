@@ -112,7 +112,7 @@ Session added successfully with ID: 1
  Output:
 
 ```
-ID: 1 | Title: Future of AI | Speaker: Dr. Alice Smith | Date: 2025-06-01 | Time: 10:00-11:30 | Location: Room A
+ID: 1 | Title: Future of AI | Speaker: Nazira S.I. | Date: 2025-06-01 | Time: 10:00-11:30 | Location: Room A
 ```
 
 ---
@@ -156,7 +156,7 @@ Session deleted.
 ```
 === Report ===
 Total sessions: 3
-Most frequent speaker: Dr. Bob Jones
+Most frequent speaker: Dr. Ulara
 
 Activity Log:
 [2025-05-12T10:30:20.123] Added session: 2
